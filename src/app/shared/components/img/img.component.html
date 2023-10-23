@@ -1,0 +1,6 @@
+<img [src]="img" width="200" *ngIf="img; else default">
+<ng-template #default>
+    <img [src]="imgDefault" width="200">
+</ng-template>
+
+

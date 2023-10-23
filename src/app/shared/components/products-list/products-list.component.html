@@ -1,0 +1,30 @@
+<button (click)="toggleProductDetail()">Click</button>
+<button (click)="showDetail('')">Click error</button>
+<p>La cantidad de productos agregados es: {{ myShoppingCart.length }}</p>
+<br />
+<button (click)="loadMore()">Show More</button>
+{{ today | timeAgo }}
+<br />
+El total es ${{ total }}
+<br />
+<p>Otra fecha {{ otherDay | timeAgo }}</p>
+<button (click)="showShoppingCart()">Mostrar productos</button>
+<ul *ngIf="onShoppingCart">
+  <li *ngFor="let shop of myShoppingCart">
+    {{ shop.title }}
+  </li>
+</ul>
+<div class="products--grid">
+  <app-product
+    *ngFor="let product of products"
+    [myProduct]="product"
+    (addedCart)="onAddedToCart($event)"
+    (showDetail)="showDetail($event)"
+  ></app-product>
+</div>
+<div class="product-detail" [class.active]="showProductDetail">
+  <button (click)="toggleProductDetail()">Close</button>
+  <h1 *ngIf="statusDetail == 'error'">Ha ocurrido un error :/</h1>
+  <img [src]="productChosen.images[0]" alt="">
+  <p>{{ productChosen.description }}</p>
+</div>
