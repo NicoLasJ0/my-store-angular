@@ -8,4 +8,4 @@ Un proyecto de Angular simulando una tienda virtual, este proyecto es el resulta
 
 
 
-###Nunca paren de aprender.
+### Nunca paren de aprender.
